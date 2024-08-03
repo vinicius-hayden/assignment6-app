@@ -1,11 +1,12 @@
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { Form, Button, Row, Col } from "react-bootstrap";
-import { useSearchHistoryState } from '@/store';
-import { addToHistory } from "@/lib/userData"; 
+import { useAtom } from 'jotai';
+import { searchHistoryAtom } from '@/store'; 
+import { addToHistory } from "@/lib/userData";
 
 export default function AdvancedSearch() {
-  const [searchHistory, setSearchHistory] = useSearchHistoryState();
+  const [searchHistory, setSearchHistory] = useAtom(searchHistoryAtom);
 
   const {
     register,
