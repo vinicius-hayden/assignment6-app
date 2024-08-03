@@ -6,7 +6,7 @@
 * 
 *  Name: Vinicius Souza da Silva Student ID: 135067221 Date: 02/08/2024
 *
-*  Vercel App (Deployed) Link: 
+*  Vercel App (Deployed) Link: assignment6-app.vercel.app
 *  
 ********************************************************************************/ 
 

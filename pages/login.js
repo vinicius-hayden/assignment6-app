@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import { favouritesAtom, searchHistoryAtom } from "../store";
 import { getFavourites, getHistory } from "../lib/userData";
 import { useRouter } from "next/router";
-import { Button, Form, Container, Card, Alert } from "react-bootstrap"; // Import Alert
+import { Button, Form, Container, Card, Alert } from "react-bootstrap"; 
 import { useState } from "react";
 import { authenticateUser } from "@/lib/authenticate";
 import Link from "next/link";

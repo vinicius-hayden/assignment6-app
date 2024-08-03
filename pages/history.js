@@ -19,14 +19,12 @@ export default function SearchHistory() {
     parsedHistory.push(Object.fromEntries(entries));
   });
 
-  // This function must cause the user to navigate (using the "useRouter" hook) to the page
   const historyClicked = (e, index) => {
     router.push(`/artwork?${searchHistory[index]}`);
   };
 
-  // The purpose of this function is to remove an element from the "searchHistory" list
   async function removeHistoryClicked(e, index){
-    e.stopPropagation(); // stop the event from trigging other events
+    e.stopPropagation(); 
     setSearchHistory(await removeFromHistory(searchHistory[index])) 
   };
 
