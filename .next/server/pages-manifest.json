@@ -2,9 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/login": "pages/login.js",
   "/": "pages/index.js",
-  "/artwork": "pages/artwork.js",
-  "/favourites": "pages/favourites.js",
-  "/artwork/[objectID]": "pages/artwork/[objectID].js",
-  "/history": "pages/history.js"
+  "/favourites": "pages/favourites.js"
 }

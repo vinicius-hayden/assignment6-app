@@ -1,49 +1,49 @@
 import React from "react";
-import { useAtom } from 'jotai';
-import { favouritesAtom } from '@/store';
+import { useAtom } from "jotai";
+import { favouritesAtom } from "@/store";
 import { useState, useEffect } from "react";
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Card from 'react-bootstrap/Card';
-import ArtworkCard from '@/components/ArtworkCard';
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Card from "react-bootstrap/Card";
+import ArtworkCard from "@/components/ArtworkCard";
 
 export default function Favourites() {
-    // Get a reference to the favourites list
-    const [ favourites, setFavourites ] = useAtom(favouritesAtom);
+  let [favouriteLists, setFavouriteLists] = useState([]);
+  const [favourites, setFavourites] = useAtom(favouritesAtom)
+  
+  useEffect(() => {
+    setFavouriteLists(favourites);
+  }, []);
 
-    // Add the artworkList to the state
-    let [ artworkList, setArtworkList ] = useState([]);
-      
-    // Create a 2D array of data for paging that is set in the state 
-    useEffect(() => {
-            setArtworkList(favourites);
-    }, []);
+  if (!favourites) return null;
 
-    if(!favourites) return null;
-
-    return (
-        <>
-            <Container>
-            {artworkList.length > 0 ? (
-                <>
-                    <Row className="gy-4">
-                        {artworkList.map((currentObjectID) => (
-                            <Col lg={3} key={currentObjectID}>
-                                <ArtworkCard objectID={currentObjectID} />
-                            </Col>
-                        ))}
-                    </Row>
-                </>
-                ) : (
-                <Card>
-                    <Card.Body>
-                    <h4>Nothing Here</h4>
-                    <p>Try adding something in favourites</p>
-                    </Card.Body>
-                </Card>
-                )}
-            </Container>
-        </>
-    );
+  return (
+    <>
+      {favouriteLists && favouriteLists.length > 0 ? (
+        <Container>
+          <Row>
+            {favouriteLists.map((objectID) => (
+              <Col lg={3} md={4} sm={6} xs={12} key={objectID}>
+                <ArtworkCard objectID={objectID} />
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      ) : (
+        <Container className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
+          <Card className="text-center">
+            <Card.Body>
+              <Card.Title style={{ fontSize: "1.5rem", fontWeight: "600" }}>
+                No Favourites Yet
+              </Card.Title>
+              <Card.Text style={{ fontSize: "1.2rem" }}>
+                Browse and add some artwork to your favourites.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Container>
+      )}
+    </>
+  );
 }

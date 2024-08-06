@@ -27,25 +27,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/artwork": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/artwork.js"
-    ],
-    "/artwork/[objectID]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/artwork/[objectID].js"
-    ],
     "/favourites": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/favourites.js"
     ],
-    "/history": [
+    "/login": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/history.js"
+      "static/chunks/pages/login.js"
     ]
   },
   "ampFirstPages": []
